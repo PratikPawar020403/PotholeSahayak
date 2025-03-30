@@ -1,21 +1,22 @@
 import streamlit as st
 import cv2
-import tempfile
-import os
 import numpy as np
+import os
+from pathlib import Path
+from ultralytics import YOLO
+import tempfile
+from PIL import Image
+import time
+from streamlit_option_menu import option_menu
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
-from ultralytics import YOLO
-from PIL import Image
-import time
 import io
 import glob
 from datetime import datetime
 import re
 import json
-from pathlib import Path
 import base64
 import torch  # Added for CUDA memory management
 
@@ -148,34 +149,39 @@ class PotholeDetectionApp:
         with st.sidebar:
             st.title("🛣️ Pothole Detection")
             
-            # GitHub link
+            # Navigation
+            selected_page = option_menu(
+                menu_title=None,
+                options=["🏠 Home", "🔍 Inference", "📊 Performance", "📚 Documentation"],
+                icons=["house", "search", "graph-up", "book"],
+                menu_icon="cast",
+                default_index=0,
+                orientation="vertical",
+            )
+            
+            # Connect section
+            st.markdown("### Connect")
             st.markdown("""
-            [![GitHub](https://img.shields.io/badge/GitHub-View%20Source-blue?style=for-the-badge&logo=GitHub)](https://github.com/PratikPawar020403/PotholeSahayak)
+            [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PratikPawar020403/PotholeSahayak)
+            [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pratik-pawar-780443358/)
             """)
             
+            # Footer
             st.markdown("---")
-            
-            # Navigation
-            self.pages = {
-                "🏠 Home": self.home_page,
-                "🔍 Inference": self.inference_page,
-                "📈 Performance": self.performance_page,
-                "📚 Documentation": self.documentation_page
-            }
-            
-            selection = st.radio("Navigation", list(self.pages.keys()))
-            
-            # Footer with social links
-            st.markdown("---")
-            cols = st.columns(4)
-            with cols[0]: st.markdown("[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin)](YOUR_LINKEDIN)")
-            with cols[1]: st.markdown("[![Twitter](https://img.shields.io/badge/Twitter-blue?style=flat&logo=twitter)](YOUR_TWITTER)")
-            with cols[2]: st.markdown("[![Portfolio](https://img.shields.io/badge/Portfolio-green?style=flat)](YOUR_PORTFOLIO)")
-            
-            st.markdown(" 2025 Pothole Detection")
-        
+            st.markdown(
+                "<div style='text-align: center; color: #666;'>&copy; 2025 Pothole Detection System</div>", 
+                unsafe_allow_html=True
+            )
+
         # Display selected page
-        self.pages[selection]()
+        if selected_page == "🏠 Home":
+            self.home_page()
+        elif selected_page == "🔍 Inference":
+            self.inference_page()
+        elif selected_page == "📊 Performance":
+            self.performance_page()
+        elif selected_page == "📚 Documentation":
+            self.documentation_page()
     
     def load_model(self):
         """Load the YOLOv8 model"""
