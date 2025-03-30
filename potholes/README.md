@@ -58,7 +58,6 @@ pothole-detection/
 ├── requirements.txt   # Project dependencies
 ├── best.pt           # Trained model
 ├── media/            # Sample media files
-└── docs/             # Documentation
 ```
 
 ## Training 🎯
@@ -70,15 +69,12 @@ To train the model on your own dataset:
 3. Run training:
 ```bash
 python train.py
+train2.py is google colab compactiable code . 
 ```
 
 ## Contributing 🤝
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License 📄
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments 🙏
 
