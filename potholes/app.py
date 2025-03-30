@@ -135,7 +135,7 @@ class PotholeDetectionApp:
     def load_model(self) -> Optional[YOLO]:
         """Load the YOLOv8 model"""
         try:
-            model = YOLO('best.pt')
+            model = YOLO('potholes/best.pt')
             st.success("Model loaded successfully!")
             return model
         except Exception as e:
