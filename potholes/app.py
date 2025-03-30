@@ -126,7 +126,7 @@ class PotholeDetectionApp:
             st.session_state.model = None
             # Load model automatically
             try:
-                model_path = "best.pt"
+                model_path = "potholes/best.pt"
                 if os.path.exists(model_path):
                     st.session_state.model = YOLO(model_path)
                     self.load_performance_metrics()
