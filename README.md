@@ -12,10 +12,6 @@ A deep learning-powered system that detects potholes in images and videos using 
 ## Installation 🔧
 
 1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/pothole-detection.git
-cd pothole-detection
-```
 
 2. Create a virtual environment:
 ```bash
