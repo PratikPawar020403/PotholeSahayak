@@ -150,7 +150,7 @@ class PotholeDetectionApp:
             
             # GitHub link
             st.markdown("""
-            [![GitHub](https://img.shields.io/badge/GitHub-View%20Source-blue?style=for-the-badge&logo=GitHub)](YOUR_GITHUB_URL)
+            [![GitHub](https://img.shields.io/badge/GitHub-View%20Source-blue?style=for-the-badge&logo=GitHub)](https://github.com/PratikPawar020403/PotholeSahayak)
             """)
             
             st.markdown("---")
