@@ -1,0 +1,10 @@
+,Metric Value
+metrics/precision(B),0.735
+metrics/recall(B),0.647
+metrics/mAP50(B),0.732
+metrics/mAP50-95(B),0.436
+metrics/precision(M),0.716
+metrics/recall(M),0.692
+metrics/mAP50(M),0.735
+metrics/mAP50-95(M),0.416
+fitness,0.914
